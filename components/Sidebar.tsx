@@ -1,5 +1,4 @@
-import { useRouter } from 'next/router';
-import { NavLink } from './NavLink';
+import { NavLink } from 'components/NavLink';
 
 export const Sidebar = () => {
   return (
