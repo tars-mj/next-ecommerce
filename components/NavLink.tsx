@@ -2,6 +2,7 @@ import Link, { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 import { pathToRegexp } from 'path-to-regexp';
 import React from 'react';
+import cx from 'classnames';
 
 type NavLink = LinkProps & {
   exact?: boolean;
@@ -23,11 +24,7 @@ export const NavLink = ({
 
   const child = React.Children.only(children) as JSX.Element;
 
-  const className = (
-    (child.props.className || '') +
-    ' ' +
-    (isActive ? activeClassName : '')
-  ).trim();
+  const className = cx(child.props.className || '', isActive ? activeClassName : '');
 
   return (
     <Link href={pathParse} {...props}>
