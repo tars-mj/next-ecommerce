@@ -11,7 +11,7 @@ const Product = () => {
       <Header />
       <main className="max-w-5xl mx-auto w-full flex-grow p-6 grid gap-6 sm:grid-cols-2">
         <Sidebar />
-        <p className="text-slate-900">Produkt: {asPath.split('/').at(-2)}</p>
+        <p className="text-slate-900">Produkt: {asPath.split('/')[2]}</p>
       </main>
       <Footer />
     </div>
