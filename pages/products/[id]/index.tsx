@@ -1,7 +1,7 @@
-import { Header } from '../../components/Header';
+import { Header } from '../../../components/Header';
 import { useRouter } from 'next/router';
-import { Footer } from '../../components/Footer';
-import { Sidebar } from '../../components/Sidebar';
+import { Footer } from '../../../components/Footer';
+import { Sidebar } from '../../../components/Sidebar';
 
 const Product = () => {
   const { asPath } = useRouter();
