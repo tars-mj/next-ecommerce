@@ -1,13 +1,13 @@
 import Link, { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 import { pathToRegexp } from 'path-to-regexp';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import cx from 'classnames';
 
 type NavLink = LinkProps & {
   exact?: boolean;
   activeClassName?: string;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const NavLink = ({
