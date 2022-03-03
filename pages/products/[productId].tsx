@@ -45,7 +45,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }: GetStaticPropsContext<{ productId: string }>) => {
+export const getStaticProps = async ({ params }: InferGetStaticPaths<typeof getStaticPaths>) => {
   if (!params?.productId) {
     return {
       props: {},
