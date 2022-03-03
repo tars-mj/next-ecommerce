@@ -1,4 +1,4 @@
-import { Product } from 'components/Product';
+import { ProductDetails } from 'components/Product';
 import { useQuery } from 'react-query';
 
 const getProducts = async () => {
@@ -22,7 +22,7 @@ const ProductsCSRPage = () => {
       {data.map((product) => {
         return (
           <li key={product.id} className="shadow-xl border-2">
-            <Product
+            <ProductDetails
               data={{
                 title: product.title,
                 description: product.description,

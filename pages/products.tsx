@@ -1,5 +1,5 @@
 import { InferGetStaticPropsType } from 'next';
-import { Product } from 'components/Product';
+import { ProductListItem } from 'components/Product';
 
 export const getStaticProps = async () => {
   const res = await fetch(`https://fakestoreapi.com/products/`);
@@ -18,13 +18,11 @@ const ProductsPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) 
       {data.map((product) => {
         return (
           <li key={product.id} className="shadow-xl border-2">
-            <Product
+            <ProductListItem
               data={{
                 title: product.title,
-                description: product.description,
                 thumbnailUrl: product.image,
-                thumbnailAlt: product.title,
-                rating: product.rating.rate
+                thumbnailAlt: product.title
               }}
             />
           </li>

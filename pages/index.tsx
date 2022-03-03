@@ -1,9 +1,10 @@
 import { Footer } from 'components/Footer';
 import { Header } from 'components/Header';
 import { Main } from 'components/Main';
-import { Product } from 'components/Product';
+import { ProductDetails } from 'components/Product';
 
 const DATA = {
+  title: 'Barista nalewający kawę do Chemexa',
   description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor facilis cupiditate
 	molestiae magni eius nesciunt, nemo eligendi nam, doloremque placeat voluptatibus
 	quibusdam consequatur possimus optio officia consectetur quos sint? Voluptatum.`,
@@ -17,7 +18,7 @@ const Home = () => {
     <div className="flex flex-col min-h-screen ">
       <Header />
       <Main>
-        <Product data={DATA} />
+        <ProductDetails data={DATA} />
       </Main>
       <Footer />
     </div>
