@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { ProductDetails } from 'components/Product';
 import { useQuery } from 'react-query';
 

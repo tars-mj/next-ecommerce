@@ -4,6 +4,7 @@ import { Main } from 'components/Main';
 import { ProductDetails } from 'components/Product';
 
 const DATA = {
+  id: 123,
   title: 'Barista nalewający kawę do Chemexa',
   description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor facilis cupiditate
 	molestiae magni eius nesciunt, nemo eligendi nam, doloremque placeat voluptatibus
