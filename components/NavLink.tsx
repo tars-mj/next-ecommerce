@@ -14,7 +14,7 @@ export const NavLink = ({
   href,
   exact,
   as,
-  activeClassName = 'text-green-400',
+  activeClassName = 'text-primary-primaryBlue01',
   children,
   ...props
 }: NavLink) => {

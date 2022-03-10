@@ -3,7 +3,13 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   images: {
-    domains: ['picsum.photos', 'fakestoreapi.com'],
+    domains: [
+      'picsum.photos',
+      'fakestoreapi.com',
+      'naszsklep-api.vercel.app',
+      'tailwindui.com',
+      'firebasestorage.googleapis.com'
+    ],
     formats: ['image/avif', 'image/webp']
   }
 };
