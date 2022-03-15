@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { StarIcon } from '@heroicons/react/solid';
 import Breadcrumbs from './Breadcrumps';
 import { classNames } from 'utils/classNames';
+import ReactMarkdown from 'react-markdown';
 
 interface ProductDetails {
   id: number;
@@ -58,6 +59,7 @@ export const ProductDetails = ({ data }: ProductDetailsProps) => {
     <>
       <div className="pt-6 pb-16 sm:pb-24">
         <Breadcrumbs />
+
         <div className="mt-8 max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
             <div className="lg:col-start-8 lg:col-span-5">
@@ -131,6 +133,9 @@ export const ProductDetails = ({ data }: ProductDetailsProps) => {
               </div>
             </div>
           </div>
+          <article className="prose lg:prose-xl">
+            <ReactMarkdown>{data.longDescription}</ReactMarkdown>
+          </article>
         </div>
       </div>
     </>
