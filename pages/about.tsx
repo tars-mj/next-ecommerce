@@ -3,13 +3,7 @@ import { Header } from 'components/Header';
 import { Main } from 'components/Main';
 
 const AboutPage = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <Main>About page</Main>
-      <Footer />
-    </div>
-  );
+  return <Main>About page</Main>;
 };
 
 export default AboutPage;
