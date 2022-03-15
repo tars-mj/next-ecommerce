@@ -18,7 +18,7 @@ type PathArrayType = {
   href: string;
 }[];
 
-export default function Breadcrumbs(): ReactNode {
+export default function Breadcrumbs() {
   const router = useRouter();
   const [breadcrumbs, setBreadcrumbs] = useState<PathArrayType | null>(null);
 
