@@ -13,6 +13,7 @@ interface ProductDetails {
   rating: number;
   category: string;
   price: number;
+  longDescription: string;
 }
 
 type ProductListItem = Pick<
