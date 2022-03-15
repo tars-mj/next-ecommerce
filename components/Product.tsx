@@ -4,6 +4,7 @@ import { StarIcon } from '@heroicons/react/solid';
 import Breadcrumbs from './Breadcrumps';
 import { classNames } from 'utils/classNames';
 import ReactMarkdown from 'react-markdown';
+import Head from 'next/head';
 
 interface ProductDetails {
   id: number;
@@ -57,6 +58,9 @@ export const ProductListItem = ({ data }: ProductListItemProps) => {
 export const ProductDetails = ({ data }: ProductDetailsProps) => {
   return (
     <>
+      <Head>
+        <title>{data.title}</title>
+      </Head>
       <div className="pt-6 pb-16 sm:pb-24">
         <Breadcrumbs />
 
