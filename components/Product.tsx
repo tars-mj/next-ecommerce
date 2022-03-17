@@ -4,7 +4,7 @@ import { StarIcon } from '@heroicons/react/solid';
 import Breadcrumbs from './Breadcrumps';
 import { classNames } from 'utils/classNames';
 import ReactMarkdown from 'react-markdown';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 interface ProductDetails {
   id: number;
@@ -58,9 +58,24 @@ export const ProductListItem = ({ data }: ProductListItemProps) => {
 export const ProductDetails = ({ data }: ProductDetailsProps) => {
   return (
     <>
-      <Head>
-        <title>{data.title}</title>
-      </Head>
+      <NextSeo
+        title={data.title}
+        description={data.description}
+        canonical={`https://next-ecommerce-nine-inky.vercel.app/products/${data.id}`}
+        openGraph={{
+          url: `https://next-ecommerce-nine-inky.vercel.app/products/${data.id}`,
+          title: data.title,
+          description: data.description,
+          images: [
+            {
+              url: data.thumbnailUrl,
+              alt: data.thumbnailAlt,
+              type: 'image/jpeg'
+            }
+          ],
+          site_name: 'Nasz sklep'
+        }}
+      />
       <div className="pt-6 pb-16 sm:pb-24">
         <Breadcrumbs />
 
