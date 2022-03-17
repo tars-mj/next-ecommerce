@@ -2,7 +2,6 @@ import { ChevronRightIcon, HomeIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-import { ReactNode } from 'react';
 
 const convertBreadcrumb = (string: string) => {
   return string

@@ -28,7 +28,8 @@ const ProductIdPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>)
             description: data.description,
             rating: data.rating.rate,
             price: data.price,
-            category: data.category
+            category: data.category,
+            longDescription: data.longDescription
           }}
         />
       </Main>
@@ -78,6 +79,7 @@ export interface StoreApiResponse {
   title: string;
   price: number;
   description: string;
+  longDescription: string;
   image: string;
   rating: {
     rate: number;
