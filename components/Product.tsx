@@ -4,7 +4,8 @@ import { StarIcon } from '@heroicons/react/solid';
 import Breadcrumbs from './Breadcrumps';
 import { classNames } from 'utils/classNames';
 import { NextSeo } from 'next-seo';
-import { ReconfigReactMarkdown } from './ReconfigReactMarkdown';
+import { Markdown } from './Markdown';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 interface ProductDetails {
   id: number;
@@ -15,7 +16,7 @@ interface ProductDetails {
   rating: number;
   category: string;
   price: number;
-  longDescription: string;
+  longDescription: MDXRemoteSerializeResult<Record<string, unknown>>;
 }
 
 type ProductListItem = Pick<
@@ -153,7 +154,7 @@ export const ProductDetails = ({ data }: ProductDetailsProps) => {
             </div>
           </div>
           <article className="prose lg:prose-xl">
-            <ReconfigReactMarkdown>{data.longDescription}</ReconfigReactMarkdown>
+            <Markdown>{data.longDescription}</Markdown>
           </article>
         </div>
       </div>
