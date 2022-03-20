@@ -3,6 +3,7 @@ import { Header } from 'components/Header';
 import { Main } from 'components/Main';
 import { ProductDetails } from 'components/Product';
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+import { serialize } from 'next-mdx-remote/serialize';
 
 export type InferGetStaticPaths<T> = T extends () => Promise<{
   paths: Array<{ params: infer R }>;
@@ -17,7 +18,6 @@ const ProductIdPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>)
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <Main>
         <ProductDetails
           data={{
@@ -33,7 +33,6 @@ const ProductIdPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>)
           }}
         />
       </Main>
-      <Footer />
     </div>
   );
 };
@@ -67,9 +66,18 @@ export const getStaticProps = async ({ params }: InferGetStaticPaths<typeof getS
   const res = await fetch(`https://naszsklep-api.vercel.app/api/products/${params.productId}`);
   const data: StoreApiResponse | null = await res.json();
 
+  if (!data) {
+    return {
+      props: {},
+      notFound: true
+    };
+  }
+
+  const compiledMarkdown = await serialize(data.longDescription);
+
   return {
     props: {
-      data
+      data: { ...data, longDescription: compiledMarkdown }
     }
   };
 };

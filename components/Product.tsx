@@ -3,8 +3,9 @@ import Link from 'next/link';
 import { StarIcon } from '@heroicons/react/solid';
 import Breadcrumbs from './Breadcrumps';
 import { classNames } from 'utils/classNames';
-import ReactMarkdown from 'react-markdown';
 import { NextSeo } from 'next-seo';
+import { Markdown } from './Markdown';
+import { MarkdownResult } from 'utils/types';
 
 interface ProductDetails {
   id: number;
@@ -15,7 +16,7 @@ interface ProductDetails {
   rating: number;
   category: string;
   price: number;
-  longDescription: string;
+  longDescription: MarkdownResult;
 }
 
 type ProductListItem = Pick<
@@ -153,7 +154,7 @@ export const ProductDetails = ({ data }: ProductDetailsProps) => {
             </div>
           </div>
           <article className="prose lg:prose-xl">
-            <ReactMarkdown>{data.longDescription}</ReactMarkdown>
+            <Markdown>{data.longDescription}</Markdown>
           </article>
         </div>
       </div>
