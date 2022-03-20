@@ -5,7 +5,7 @@ import Breadcrumbs from './Breadcrumps';
 import { classNames } from 'utils/classNames';
 import { NextSeo } from 'next-seo';
 import { Markdown } from './Markdown';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MarkdownResult } from 'utils/types';
 
 interface ProductDetails {
   id: number;
@@ -16,7 +16,7 @@ interface ProductDetails {
   rating: number;
   category: string;
   price: number;
-  longDescription: MDXRemoteSerializeResult<Record<string, unknown>>;
+  longDescription: MarkdownResult;
 }
 
 type ProductListItem = Pick<

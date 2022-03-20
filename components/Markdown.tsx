@@ -1,11 +1,8 @@
-import { MDXRemote, MDXRemoteProps, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote } from 'next-mdx-remote';
 import Link from 'next/link';
+import { MarkdownResult } from 'utils/types';
 
-export const Markdown = ({
-  children
-}: {
-  children: MDXRemoteSerializeResult<Record<string, unknown>>;
-}) => {
+export const Markdown = ({ children }: { children: MarkdownResult }) => {
   return (
     <MDXRemote
       components={{
@@ -13,6 +10,7 @@ export const Markdown = ({
           if (!href) {
             return <a {...props}></a>;
           }
+
           return (
             <Link href={href}>
               <a {...props}></a>
