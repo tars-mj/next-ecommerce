@@ -18,7 +18,6 @@ const ProductIdPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>)
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
       <Main>
         <ProductDetails
           data={{
@@ -34,7 +33,6 @@ const ProductIdPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>)
           }}
         />
       </Main>
-      <Footer />
     </div>
   );
 };
