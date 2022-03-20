@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { StarIcon } from '@heroicons/react/solid';
 import Breadcrumbs from './Breadcrumps';
 import { classNames } from 'utils/classNames';
-import ReactMarkdown from 'react-markdown';
 import { NextSeo } from 'next-seo';
+import { ReconfigReactMarkdown } from './ReconfigReactMarkdown';
 
 interface ProductDetails {
   id: number;
@@ -153,7 +153,7 @@ export const ProductDetails = ({ data }: ProductDetailsProps) => {
             </div>
           </div>
           <article className="prose lg:prose-xl">
-            <ReactMarkdown>{data.longDescription}</ReactMarkdown>
+            <ReconfigReactMarkdown>{data.longDescription}</ReconfigReactMarkdown>
           </article>
         </div>
       </div>
