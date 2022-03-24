@@ -6,6 +6,7 @@ import { classNames } from 'utils/classNames';
 import { NextSeo } from 'next-seo';
 import { Markdown } from './Markdown';
 import { MarkdownResult } from 'utils/types';
+import { useCartState } from './Cart/CartContext';
 
 interface ProductDetails {
   id: number;
@@ -33,26 +34,41 @@ interface ProductDetailsProps {
 }
 
 export const ProductListItem = ({ data }: ProductListItemProps) => {
+  const cartState = useCartState();
   return (
-    <Link href={`/products/${data.id}`}>
-      <a>
-        <div className="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-white group-hover:opacity-75 shadow-lg shadow-gray-100 p-6">
-          <Image
-            src={data.thumbnailUrl}
-            alt={data.thumbnailAlt}
-            width="16"
-            height="9"
-            layout="responsive"
-            objectFit="contain"
-            className="w-full h-full object-center object-cover"
-          />
-        </div>
-
-        <h3 className="mt-4 font-medium text-gray-900">{data.title}</h3>
-        <p className="text-gray-500 italic">{data.category}</p>
-        <p className="mt-2 font-medium text-gray-900">${data.price}</p>
-      </a>
-    </Link>
+    <>
+      <div className="w-full aspect-w-1 aspect-h-1 rounded-lg overflow-hidden bg-white group-hover:opacity-75 shadow-lg shadow-gray-100 p-6">
+        <Image
+          src={data.thumbnailUrl}
+          alt={data.thumbnailAlt}
+          width="16"
+          height="9"
+          layout="responsive"
+          objectFit="contain"
+          className="w-full h-full object-center object-cover "
+        />
+      </div>
+      <Link href={`/products/${data.id}`}>
+        <a>
+          <h3 className="mt-4 font-medium text-gray-900">{data.title}</h3>
+          <p className="text-gray-500 italic">{data.category}</p>
+          <p className="mt-2 font-medium text-gray-900">${data.price}</p>
+        </a>
+      </Link>
+      <button
+        onClick={() =>
+          cartState.addItemToCart({
+            title: data.title,
+            price: 21.37,
+            count: 1,
+            id: data.id
+          })
+        }
+        type="button"
+        className="focus:outline-none mt-8 w-full rounded-md border border-transparent bg-primary-primaryBlue01 py-2 px-4 text-sm font-medium text-white shadow hover:bg-primary-primaryBlue01 focus:ring-2 focus:bg-primary-primaryBlue01 focus:ring-offset-2">
+        Add to bag
+      </button>
+    </>
   );
 };
 
