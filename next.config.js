@@ -8,7 +8,8 @@ const nextConfig = {
       'fakestoreapi.com',
       'naszsklep-api.vercel.app',
       'tailwindui.com',
-      'firebasestorage.googleapis.com'
+      'firebasestorage.googleapis.com',
+      'media.graphcms.com'
     ],
     formats: ['image/avif', 'image/webp']
   }
